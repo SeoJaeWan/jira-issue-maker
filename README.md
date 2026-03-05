@@ -5,13 +5,7 @@
 ## 설치
 
 ```bash
-claude plugin add /path/to/jira-issue-maker
-```
-
-또는 GitHub에서 직접:
-
-```bash
-claude plugin add --from github:<org>/jira-issue-maker
+claude plugin add --from https://github.com/SeoJaeWan/jira-issue-maker
 ```
 
 설치하면 `jira` 스킬과 `atlassian-rovo` MCP 서버가 자동으로 등록됩니다.
