@@ -1,0 +1,92 @@
+# DEMO Project Rules
+# Project-specific configuration that extends _base.yaml.
+# Only values that differ from _base.yaml need to be specified here;
+# unspecified keys fall back to _base.yaml defaults.
+#
+# Path: .claude/skills/jira/projects/DEMO.yaml
+
+# ─── Project Key ──────────────────────────────────────────────────
+project_key: "DEMO"
+
+# ─── Required Fields ─────────────────────────────────────────────
+# Extends the base required_fields with project-specific additions.
+# All base fields are listed explicitly to make the full set visible.
+required_fields:
+  - summary
+  - description
+  - issuetype
+  - labels
+  - story_id
+  - priority
+  - component
+
+# ─── Allowed Labels ──────────────────────────────────────────────
+# Only these labels are accepted for the DEMO project.
+allowed_labels:
+  - frontend
+  - backend
+  - infra
+  - ux
+  - bug
+  - enhancement
+
+# ─── Story ID Configuration ─────────────────────────────────────
+# story_id_field: Jira custom field that stores the story identifier.
+# story_id_default_prefix: Prefix for auto-generated IDs when not provided.
+story_id_field: "customfield_story_id"
+story_id_default_prefix: "DEMO"
+
+# ─── Epic Configuration ─────────────────────────────────────────
+# default_epic: Pre-filled epic key proposed to the user during Step A-2.
+default_epic: "DEMO-100"
+
+# ─── Duplicate Policy ───────────────────────────────────────────
+# How to handle stories matching existing Jira issues.
+# Options: skip, warn, block (schema-level)
+# Options: ask, update, skip, create_new (prepare parameter-level)
+# See references/duplicate-policy.md for details.
+duplicate_policy: "warn"
+
+# ─── Issue Type ──────────────────────────────────────────────────
+default_issuetype: "Story"
+
+# ─── Priority ────────────────────────────────────────────────────
+default_priority: "Medium"
+
+# ─── Custom Field Mapping ────────────────────────────────────────
+# Map logical field names to Jira custom field IDs.
+# The key is the logical name used in the MD schema; the value is the
+# Jira field ID. See references/field-mapping.md for type details.
+#
+# Example mappings for the DEMO project:
+custom_field_mapping:
+  story_id: "customfield_10100"
+  component: "customfield_10200"
+  sprint: "customfield_10300"
+  story_points: "customfield_10400"
+  team: "customfield_10500"
+
+# ─── Validation Rules ───────────────────────────────────────────
+# Project-specific validation constraints applied during prepare and apply.
+# Each rule is a key with a constraint object.
+#
+# Supported constraint types:
+#   min_length  -- minimum character count for string fields
+#   max_length  -- maximum character count for string fields
+#   pattern     -- regex pattern the field value must match
+#   required_if -- field is required when another field matches a condition
+#   enum        -- field value must be one of the listed values
+validation_rules:
+  summary_min_length: 10
+  summary_max_length: 120
+  description_min_length: 30
+  component_enum:
+    - web-app
+    - api-server
+    - infra
+    - shared-lib
+  priority_enum:
+    - High
+    - Medium
+    - Low
+  labels_max_count: 4

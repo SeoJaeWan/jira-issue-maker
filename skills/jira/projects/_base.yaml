@@ -1,0 +1,51 @@
+# Base Project Rules
+# Default configuration applied when no project-specific rules file exists.
+# Project-specific files (e.g., PROJ.yaml) override these values.
+#
+# Path: .claude/skills/jira/projects/{PROJECT_KEY}.yaml
+
+# ─── Required Fields ───────────────────────────────────────────────
+# Fields that must be present and non-empty in every story entry.
+required_fields:
+  - summary
+  - description
+  - issuetype
+  - labels
+  - story_id
+  - priority
+
+# ─── Allowed Labels ────────────────────────────────────────────────
+# When defined, only these labels are accepted in story entries.
+# Empty list means all labels are allowed (no restriction).
+allowed_labels: []
+
+# ─── Story ID Configuration ───────────────────────────────────────
+# story_id_field: The Jira custom field name used to store the story identifier.
+# story_id_default_prefix: Prefix used to auto-generate story IDs when not provided.
+story_id_field: "customfield_story_id"
+story_id_default_prefix: "STORY"
+
+# ─── Epic Configuration ───────────────────────────────────────────
+# default_epic: Pre-filled epic key proposed to the user during Step A-2.
+# Leave empty to force epic selection from Jira query results.
+default_epic: ""
+
+# ─── Duplicate Policy ─────────────────────────────────────────────
+# How to handle stories that match existing Jira issues.
+#   skip  - silently omit the duplicate from the review file.
+#   warn  - include the entry with a duplicate annotation.
+#   block - mark the entry as status: duplicate and require manual resolution.
+duplicate_policy: "warn"
+
+# ─── Issue Type ────────────────────────────────────────────────────
+# Default issue type for all entries in this project.
+default_issuetype: "Story"
+
+# ─── Priority ──────────────────────────────────────────────────────
+# Default priority when not specified in the story entry.
+default_priority: "Medium"
+
+# ─── Custom Field Mapping ─────────────────────────────────────────
+# Map logical field names to Jira custom field IDs.
+# Add project-specific mappings in {PROJECT_KEY}.yaml.
+custom_field_mapping: {}
