@@ -9,7 +9,7 @@
   "plugins": [
     {
       "name": "jira-issue-maker",
-      "source": ".",
+      "source": "./",
       "description": "Two-phase Jira issue registration from user requests or Markdown documents",
       "version": "1.0.0"
     }
