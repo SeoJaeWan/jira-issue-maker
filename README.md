@@ -7,6 +7,41 @@
 - Claude Code에 **Jira MCP 서버 (`atlassian-rovo`)** 가 연결되어 있어야 합니다.
 - 대상 Jira 프로젝트에 이슈 생성 권한이 필요합니다.
 
+### Jira MCP 서버 등록
+
+MCP 서버가 아직 없으면 아래 단계로 등록합니다.
+
+**1. Claude Code CLI로 추가**
+
+```bash
+claude mcp add --transport http atlassian-rovo https://mcp.atlassian.com/v1/mcp
+```
+
+또는 `~/.claude.json`의 `mcpServers`에 직접 추가:
+
+```json
+{
+  "mcpServers": {
+    "atlassian-rovo": {
+      "type": "http",
+      "url": "https://mcp.atlassian.com/v1/mcp"
+    }
+  }
+}
+```
+
+**2. Atlassian 인증**
+
+MCP 서버 최초 실행 시 Atlassian OAuth 인증이 필요합니다.
+Claude Code에서 Jira 관련 요청을 하면 브라우저 인증 URL이 표시됩니다. 로그인 후 권한을 승인하세요.
+
+**3. 연결 확인**
+
+```
+"Jira MCP 연결 상태 확인해줘"
+"접근 가능한 Jira 프로젝트 목록 보여줘"
+```
+
 ## 호출 방법
 
 Claude Code에서 자연어로 요청하면 자동 트리거됩니다.
