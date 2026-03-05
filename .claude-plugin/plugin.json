@@ -1,0 +1,12 @@
+{
+  "name": "jira-issue-maker",
+  "version": "1.0.0",
+  "description": "Two-phase Jira issue registration from user requests or Markdown documents",
+  "author": {
+    "name": "SeoJaeWan"
+  },
+  "homepage": "https://github.com/SeoJaeWan/jira-issue-maker",
+  "repository": "https://github.com/SeoJaeWan/jira-issue-maker",
+  "license": "MIT",
+  "keywords": ["jira", "issue", "atlassian", "project-management"]
+}

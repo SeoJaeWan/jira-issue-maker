@@ -1,0 +1,17 @@
+{
+  "name": "jira-issue-maker",
+  "owner": {
+    "name": "SeoJaeWan"
+  },
+  "metadata": {
+    "description": "Jira issue registration plugin for Claude Code"
+  },
+  "plugins": [
+    {
+      "name": "jira-issue-maker",
+      "source": ".",
+      "description": "Two-phase Jira issue registration from user requests or Markdown documents",
+      "version": "1.0.0"
+    }
+  ]
+}
