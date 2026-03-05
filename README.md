@@ -1,6 +1,6 @@
 # jira-issue-maker
 
-사용자 스토리 Markdown을 Jira 이슈로 일괄 등록하는 Claude Code 플러그인입니다.
+사용자의 요청이나 Markdown 문서를 Jira 이슈로 등록하는 Claude Code 플러그인입니다.
 
 ## 설치
 
@@ -26,14 +26,29 @@ Claude Code에서 Jira 관련 요청을 하면 브라우저 인증 URL이 표시
 
 Claude Code에서 자연어로 요청하면 자동 트리거됩니다.
 
+### 대화형 요청
+
+별도의 문서 없이 대화로 이슈를 만들 수 있습니다.
+
 ```
-"사용자 스토리를 Jira에 등록해줘"
+"로그인 실패 시 에러 메시지 표시하는 이슈 만들어줘"
+"결제 모듈에 타임아웃 처리 버그 등록해줘"
+"관리자 대시보드에 필터 기능 추가하는 스토리 jira에 등록"
+```
+
+Claude가 요청 내용을 기반으로 summary, description, issue type 등을 구성하여 리뷰 MD를 생성합니다.
+
+### MD 파일 기반 일괄 등록
+
+미리 작성한 Markdown 파일로 여러 이슈를 한번에 등록할 수도 있습니다.
+
+```
 "이 MD 파일로 Jira 이슈 일괄 등록"
-"jira 등록"
+"사용자 스토리를 Jira에 등록해줘"
 "스토리 등록해줘"
 ```
 
-입력 Markdown은 `## ` 헤딩 단위로 스토리를 구분하며, 각 스토리에 summary와 description이 포함되어야 합니다.
+이 경우 입력 Markdown은 `## ` 헤딩 단위로 스토리를 구분하며, 각 스토리에 summary와 description이 포함되어야 합니다.
 
 ## 워크플로우 (2-Phase Gate)
 
